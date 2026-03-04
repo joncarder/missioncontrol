@@ -1,0 +1,7 @@
+{
+  "name": "mission-control-dashboard",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "echo 'Deploy to Vercel: https://vercel.com/new'"
+  }
+}
