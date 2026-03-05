@@ -152,19 +152,21 @@
             background: #f5f5f5;
         }
         
-        /* Main Layout */
+        /* Main Layout - Activity Feed on LEFT */
         .container {
             display: grid;
-            grid-template-columns: 280px 200px 1fr 280px;
+            grid-template-columns: 320px 180px 1fr 260px;
             height: calc(100vh - 50px);
             overflow: hidden;
         }
         
-        /* Activity Feed - Leftmost */
+        /* Activity Feed - LEFT COLUMN */
         .activity-panel {
             background: #fff;
             border-right: 1px solid #e0e0e0;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .panel-header {
@@ -178,6 +180,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-shrink: 0;
         }
         
         .live-indicator {
@@ -203,10 +206,12 @@
         
         .activity-list {
             padding: 0;
+            overflow-y: auto;
+            flex: 1;
         }
         
         .activity-item {
-            padding: 12px 16px;
+            padding: 14px 16px;
             border-bottom: 1px solid #f0f0f0;
             cursor: pointer;
             transition: background 0.15s;
@@ -214,6 +219,13 @@
         
         .activity-item:hover {
             background: #f9f9f9;
+        }
+        
+        .activity-time {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 6px;
+            font-weight: 500;
         }
         
         .activity-header {
@@ -250,13 +262,6 @@
             font-size: 12px;
             color: #333;
             line-height: 1.5;
-            margin-left: 32px;
-        }
-        
-        .activity-time {
-            font-size: 11px;
-            color: #999;
-            margin-top: 4px;
             margin-left: 32px;
         }
         
@@ -515,7 +520,7 @@
         /* Mobile Responsive */
         @media (max-width: 1200px) {
             .container {
-                grid-template-columns: 200px 1fr 240px;
+                grid-template-columns: 280px 1fr 240px;
             }
             .activity-panel {
                 display: none;
@@ -577,7 +582,7 @@
     
     <!-- Main Container -->
     <div class="container">
-        <!-- Activity Feed - Real-time -->
+        <!-- Activity Feed - LEFT COLUMN (Real-time with timestamps) -->
         <div class="activity-panel">
             <div class="panel-header">
                 <span>Activity Feed</span>
@@ -587,7 +592,7 @@
                 </span>
             </div>
             <div class="activity-list" id="activityList">
-                <!-- Activities populated by JS -->
+                <!-- Activities populated by JS with timestamps -->
             </div>
         </div>
         
@@ -638,8 +643,8 @@
             }
         ];
         
-        // REAL TASKS - Affiliate Outreach (First 2 from plan)
-        const affiliateTasks = [
+        // REAL TASKS
+        const tasks = [
             {
                 id: 1,
                 title: 'TASK 1.1: Analyze kiwico affiliate program',
@@ -649,56 +654,30 @@
                 tag: 'Research',
                 tagClass: 'affiliate',
                 time: '3h',
-                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/research/kiwico-affiliate-research.md'
+                proofUrl: null
             },
             {
                 id: 2,
-                title: 'TASK 1.2: Build list - 100 Prospects',
-                desc: 'Research 100 prospects: 20 deal/coupon sites, 30 parenting blogs, 30 homeschool sites, 20 kids activity/STEM sites. Document contact info and priority.',
+                title: 'TASK 1.2: Build list - 100 Prospects (COMPLETE)',
+                desc: 'Research 100 prospects: 20 deal sites, 30 parenting blogs, 30 homeschool sites, 20 kids activity sites. See affiliate-prospect-list.md',
                 agent: 'affiliate',
                 status: 'done',
                 tag: 'List Building',
                 tagClass: 'affiliate',
-                time: '4h',
+                time: '20h',
                 proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/prospects/affiliate-prospect-list.md'
             },
             {
                 id: 3,
-                title: 'TASK 1.3: Create Outreach Materials',
-                desc: 'Write personalized email template, create media kit, build landing page for affiliates, prepare commission comparison sheet.',
+                title: 'TASK 1.3: Create outreach materials',
+                desc: 'Write personalized email template, create media kit with images/descriptions, build landing page for affiliates, prepare commission comparison sheet.',
                 agent: 'affiliate',
                 status: 'inbox',
                 tag: 'Content',
                 tagClass: 'affiliate',
-                time: '6h',
-                proofUrl: null
-            },
-            {
-                id: 4,
-                title: 'TASK 1.4: Execute Outreach (Batch 1)',
-                desc: 'Send personalized outreach to top 20 high-priority prospects from deal sites and parenting blogs.',
-                agent: 'affiliate',
-                status: 'inbox',
-                tag: 'Outreach',
-                tagClass: 'affiliate',
-                time: '6h',
-                proofUrl: null
-            },
-            {
-                id: 5,
-                title: 'TASK 1.5: Follow-up Sequence',
-                desc: 'Day 3 follow-up for non-responders. Track responses and update CRM.',
-                agent: 'affiliate',
-                status: 'inbox',
-                tag: 'Follow-up',
-                tagClass: 'affiliate',
                 time: '4h',
                 proofUrl: null
-            }
-        ];
-        
-        // REAL TASKS - SEO Backlinks (First 2 from plan)
-        const seoTasks = [
+            },
             {
                 id: 6,
                 title: 'TASK 2.1: Analyze kiwico backlink profile',
@@ -715,40 +694,18 @@
                 title: 'TASK 2.2A: Build list - 25 Parenting Blogs',
                 desc: 'Find 25 parenting blogs accepting guest posts (DA 30+): ScaryMommy, CafeMom, Babble, The Bump, Popsugar Moms, etc.',
                 agent: 'seo',
-                status: 'inbox',
+                status: 'done',
                 tag: 'List Building',
                 tagClass: 'seo',
                 time: '5h',
-                proofUrl: null
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/seo/targets/parenting-blogs.md'
             },
             {
                 id: 8,
                 title: 'TASK 2.2B: Build list - 25 Homeschool Blogs',
                 desc: 'Find 25 homeschool/education blogs (DA 30+): Simple Homeschool, The Homeschool Scientist, Confessions of a Homeschooler, etc.',
                 agent: 'seo',
-                status: 'inbox',
-                tag: 'List Building',
-                tagClass: 'seo',
-                time: '5h',
-                proofUrl: null
-            },
-            {
-                id: 9,
-                title: 'TASK 2.2C: Build list - 25 Kids Activity Sites',
-                desc: 'Find 25 kids activity/STEM sites (DA 30+): Kids Activities Blog, Frugal Fun for Boys and Girls, Babble Dabble Do, etc.',
-                agent: 'seo',
-                status: 'inbox',
-                tag: 'List Building',
-                tagClass: 'seo',
-                time: '5h',
-                proofUrl: null
-            },
-            {
-                id: 10,
-                title: 'TASK 2.2D: Build list - 25 Resource Pages',
-                desc: 'Find 25 resource pages/directories: WeAreTeachers, Edutopia, Scholastic Parents, PBS Parents, Education.com, etc.',
-                agent: 'seo',
-                status: 'inbox',
+                status: 'in_progress',
                 tag: 'List Building',
                 tagClass: 'seo',
                 time: '5h',
@@ -756,22 +713,25 @@
             }
         ];
         
-        const tasks = [...affiliateTasks, ...seoTasks];
-        
-        // REAL ACTIVITIES - Live feed
+        // REAL ACTIVITIES - Live feed with timestamps (most recent first)
         const activities = [
-            { id: 1, agent: 'affiliate', action: 'completed', target: 'Research kiwico affiliate program on CJ', time: 'Just now' },
-            { id: 2, agent: 'affiliate', action: 'documented', target: 'Kiwico commission: $20 content, $2 coupon, 10% store', time: 'Just now' },
-            { id: 3, agent: 'affiliate', action: 'confirmed', target: 'Hip2Save actively promotes kiwico via CJ', time: '2 min ago' },
-            { id: 4, agent: 'affiliate', action: 'built', target: '100 prospect list (20 deal, 30 parenting, 30 homeschool, 20 STEM)', time: '5 min ago' },
-            { id: 5, agent: 'seo', action: 'started', target: 'Analyze kiwico backlink profile', time: '10 min ago' }
+            { id: 1, agent: 'affiliate', action: 'completed', target: 'TASK 1.2: 100 prospect list with contact info', time: '06:16 AM' },
+            { id: 2, agent: 'seo', action: 'completed', target: 'TASK 2.2A: 25 parenting blogs researched', time: '06:15 AM' },
+            { id: 3, agent: 'seo', action: 'started', target: 'TASK 2.2B: Research homeschool blogs', time: '06:10 AM' },
+            { id: 4, agent: 'affiliate', action: 'documented', target: 'Hip2Save affiliate contact: partnerships@hip2save.com', time: '06:05 AM' },
+            { id: 5, agent: 'seo', action: 'identified', target: 'High-value target: ScaryMommy (DA 75)', time: '06:02 AM' },
+            { id: 6, agent: 'affiliate', action: 'added', target: '20 deal sites to prospect list', time: '05:58 AM' },
+            { id: 7, agent: 'seo', action: 'completed', target: 'TASK 2.1: Backlink profile analysis', time: '05:55 AM' },
+            { id: 8, agent: 'affiliate', action: 'completed', target: 'TASK 1.1: kiwico affiliate research', time: '05:50 AM' },
+            { id: 9, agent: 'seo', action: 'started', target: 'Backlink research on Ahrefs', time: '05:45 AM' },
+            { id: 10, agent: 'affiliate', action: 'started', target: 'CJ Affiliate program analysis', time: '05:40 AM' }
         ];
         
         // REAL COMMENTS
         const comments = [
-            { agent: 'affiliate', task: 'Kiwico Research', text: 'Confirmed kiwico on CJ Affiliate (CID: 5463335). Commission: $20 for content sites, $2 for coupon sites, 10% store orders. We beat this with 16%!', time: 'Just now' },
-            { agent: 'affiliate', task: 'Prospect List', text: 'Built list of 100 prospects: 20 deal sites (Hip2Save, RetailMeNot, etc.), 30 parenting blogs (ScaryMommy, CafeMom), 30 homeschool sites, 20 STEM sites.', time: 'Just now' },
-            { agent: 'affiliate', task: 'Competitive Intel', text: 'Hip2Save actively promotes kiwico via CJ links (jdoqocy.com). High engagement with 12+ comments on kiwico posts. Prime target for our better commission.', time: 'Just now' }
+            { agent: 'affiliate', task: 'Prospect list', text: 'Completed full 100-prospect list! 20 deal sites, 30 parenting blogs, 30 homeschool, 20 kids activity. Ready for outreach phase.', time: '06:16 AM' },
+            { agent: 'seo', task: 'Parenting blogs', text: 'Found 25 high-DA parenting blogs. Top targets: ScaryMommy (DA 75), BabyCenter (DA 80), Popsugar (DA 85). All accept guest posts.', time: '06:15 AM' },
+            { agent: 'affiliate', task: 'kiwico research', text: 'Key insight: kiwico pays $20 for content sites, $2 for coupon sites. We can offer 16% across the board - better for most!', time: '05:55 AM' }
         ];
         
         // Render functions
@@ -831,13 +791,13 @@
                 const agent = agents.find(a => a.id === act.agent);
                 return `
                     <div class="activity-item" onclick="highlightTask('${act.target}')">
+                        <div class="activity-time">${act.time}</div>
                         <div class="activity-header">
                             <div class="activity-avatar" style="background: ${agent.color}">${agent.avatar}</div>
                             <span class="activity-agent">${agent.name}</span>
                             <span class="activity-action">${act.action}</span>
                         </div>
                         <div class="activity-content">${act.target}</div>
-                        <div class="activity-time">${act.time}</div>
                     </div>
                 `;
             }).join('');
@@ -915,21 +875,6 @@
             document.getElementById('clock').textContent = `${hours}:${minutes}`;
         }
         
-        // Simulate real-time updates
-        function addActivity(agentId, action, target) {
-            const agent = agents.find(a => a.id === agentId);
-            const newActivity = {
-                id: activities.length + 1,
-                agent: agentId,
-                action: action,
-                target: target,
-                time: 'Just now'
-            };
-            activities.unshift(newActivity);
-            if (activities.length > 20) activities.pop();
-            renderActivities();
-        }
-        
         // Initialize
         renderAgents();
         renderBoard();
@@ -942,11 +887,6 @@
         document.getElementById('taskModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
-        
-        // Simulate live activity (for demo)
-        setTimeout(() => {
-            addActivity('seo', 'completed section', 'Guest post introduction');
-        }, 30000);
     </script>
 </body>
 </html>
