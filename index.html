@@ -455,6 +455,11 @@
             color: #166534;
         }
         
+        .task-tag.review {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
         /* Comments Panel */
         .comments-panel {
             background: #fff;
@@ -672,11 +677,22 @@
                 title: 'TASK 1.3: Create outreach materials',
                 desc: 'Write personalized email template, create media kit with images/descriptions, build landing page for affiliates, prepare commission comparison sheet.',
                 agent: 'affiliate',
-                status: 'inbox',
+                status: 'done',
                 tag: 'Content',
                 tagClass: 'affiliate',
                 time: '4h',
-                proofUrl: null
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/outreach/emails-humanized.md'
+            },
+            {
+                id: 4,
+                title: 'TASK 1.4: Send affiliate outreach emails (AWAITING APPROVAL)',
+                desc: 'Send humanized outreach emails to 100 prospects. 5 email templates ready: initial outreach, parenting blogs, homeschool sites, follow-up day 3, follow-up day 7. Schedule for 8-11 AM CT.',
+                agent: 'affiliate',
+                status: 'review',
+                tag: 'Outreach',
+                tagClass: 'review',
+                time: '6h',
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/outreach/emails-humanized.md'
             },
             {
                 id: 6,
@@ -701,30 +717,30 @@
                 proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/seo/targets/parenting-blogs.md'
             },
             {
-                id: 8,
-                title: 'TASK 2.2B: Build list - 25 Homeschool Blogs',
-                desc: 'Find 25 homeschool/education blogs (DA 30+): Simple Homeschool, The Homeschool Scientist, Confessions of a Homeschooler, etc.',
+                id: 9,
+                title: 'TASK 2.3: Create guest post outreach emails (AWAITING APPROVAL)',
+                desc: 'Write humanized guest post pitch emails for 25 parenting blogs. 6 email templates ready: general parenting, homeschool, high-authority, resource pages, follow-up day 5, follow-up day 10. Schedule for 8-11 AM CT.',
                 agent: 'seo',
-                status: 'in_progress',
-                tag: 'List Building',
-                tagClass: 'seo',
-                time: '5h',
-                proofUrl: null
+                status: 'review',
+                tag: 'Outreach',
+                tagClass: 'review',
+                time: '4h',
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/seo/outreach/emails-humanized.md'
             }
         ];
         
         // REAL ACTIVITIES - Live feed with timestamps (most recent first)
         const activities = [
-            { id: 1, agent: 'affiliate', action: 'completed', target: 'TASK 1.2: 100 prospect list with contact info', time: '06:16 AM' },
-            { id: 2, agent: 'seo', action: 'completed', target: 'TASK 2.2A: 25 parenting blogs researched', time: '06:15 AM' },
-            { id: 3, agent: 'seo', action: 'started', target: 'TASK 2.2B: Research homeschool blogs', time: '06:10 AM' },
-            { id: 4, agent: 'affiliate', action: 'documented', target: 'Hip2Save affiliate contact: partnerships@hip2save.com', time: '06:05 AM' },
-            { id: 5, agent: 'seo', action: 'identified', target: 'High-value target: ScaryMommy (DA 75)', time: '06:02 AM' },
-            { id: 6, agent: 'affiliate', action: 'added', target: '20 deal sites to prospect list', time: '05:58 AM' },
-            { id: 7, agent: 'seo', action: 'completed', target: 'TASK 2.1: Backlink profile analysis', time: '05:55 AM' },
-            { id: 8, agent: 'affiliate', action: 'completed', target: 'TASK 1.1: kiwico affiliate research', time: '05:50 AM' },
-            { id: 9, agent: 'seo', action: 'started', target: 'Backlink research on Ahrefs', time: '05:45 AM' },
-            { id: 10, agent: 'affiliate', action: 'started', target: 'CJ Affiliate program analysis', time: '05:40 AM' }
+            { id: 1, agent: 'affiliate', action: 'created', target: '5 outreach email templates (awaiting Jon approval)', time: '06:35 AM' },
+            { id: 2, agent: 'seo', action: 'created', target: '6 guest post pitch emails (awaiting Jon approval)', time: '06:34 AM' },
+            { id: 3, agent: 'affiliate', action: 'completed', target: 'TASK 1.2: 100 prospect list with contact info', time: '06:16 AM' },
+            { id: 4, agent: 'seo', action: 'completed', target: 'TASK 2.2A: 25 parenting blogs researched', time: '06:15 AM' },
+            { id: 5, agent: 'seo', action: 'started', target: 'TASK 2.2B: Research homeschool blogs', time: '06:10 AM' },
+            { id: 6, agent: 'affiliate', action: 'documented', target: 'Hip2Save affiliate contact: partnerships@hip2save.com', time: '06:05 AM' },
+            { id: 7, agent: 'seo', action: 'identified', target: 'High-value target: ScaryMommy (DA 75)', time: '06:02 AM' },
+            { id: 8, agent: 'affiliate', action: 'added', target: '20 deal sites to prospect list', time: '05:58 AM' },
+            { id: 9, agent: 'seo', action: 'completed', target: 'TASK 2.1: Backlink profile analysis', time: '05:55 AM' },
+            { id: 10, agent: 'affiliate', action: 'completed', target: 'TASK 1.1: kiwico affiliate research', time: '05:50 AM' }
         ];
         
         // REAL COMMENTS
