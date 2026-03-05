@@ -1,95 +1,82 @@
-# Affiliate Outreach Email Campaign (Humanized)
+# Affiliate Outreach Emails (Humanized - Short & Personal)
 
-## Email 1: Initial Outreach to Deal/Coupon Sites
+## Email 1: Deal/Coupon Sites
 
-**Subject:** 16% commission + kids actually earn money
+**Subject:** 16% commission + my daughter made $847
 
 Hi [Name],
 
-Saw you're promoting KiwiCo on [Site Name]. Makes sense - they're huge in the kids' space.
+I'm Jon. My daughter Chloe (she's 9) and I started My Lil Startup last year.
 
-Wondering if you'd be interested in something similar but with better commissions and a stronger hook.
+We sell entrepreneur kits for kids. Not STEM activities - actual businesses. Chloe made $847 selling dog treats from one of our kits.
 
-My daughter Chloe (she's 9) and I run My Lil Startup. We sell entrepreneur kits. The difference: kids actually build real businesses and make real money. One of our customers made $847 selling dog treats from our kit.
+Saw you're promoting KiwiCo. Smart - they're huge. But we pay better:
+- 16% commission (they pay 8-10%)
+- $6-$16 per sale
+- Real entrepreneurship angle
 
-**Quick numbers:**
-- 16% commission (KiwiCo pays 8-10%)
-- $39-$99 price point = $6-$16 per sale
-- 30-day cookie
-- Real businesses, not just crafts
+Worth a 10-minute call?
 
-Worth a 10-minute call next week? I can share how our current affiliates are doing.
-
-Jon Carder
-Founder, My Lil Startup
-jon@mylilstartup.com
+Jon
+My Lil Startup
 
 ---
 
-## Email 2: Outreach to Parenting Blogs
+## Email 2: Parenting Blogs
 
 **Subject:** My 9-year-old made $847
 
 Hi [Name],
 
-Been reading [Blog Name] for a while. Your post about [specific post] stuck with me - [specific reason why].
+I'm Jon. My daughter Chloe and I run My Lil Startup together.
 
-I'm Jon. I run a company with my daughter Chloe (9). We make entrepreneur kits for kids. Not pretend stuff - actual businesses.
+We make entrepreneur kits. Real businesses, not pretend stuff. Chloe made $847 selling dog treats. Another kid cleared $1,200 doing yard work.
 
-Chloe made $847 selling dog treats. Another kid cleared $1,200 doing yard work. Real money, real skills.
+Guest post idea: "5 business ideas for kids under 12 that actually make money"
 
-Guest post ideas:
-- "5 business ideas for kids under 12 that actually make money"
-- "How I stopped buying my kid toys and started buying her business supplies"
-- "STEM is fine, but here's what kids actually need"
-
-Any of these work?
+Interested?
 
 Jon
 
 ---
 
-## Email 3: Outreach to Homeschool Sites
+## Email 3: Homeschool Sites
 
 **Subject:** Curriculum gap
 
 Hi [Name],
 
-I'm Jon. I homeschool my daughter Chloe (9) while running My Lil Startup. We make hands-on entrepreneur kits.
+I'm Jon. I homeschool my daughter Chloe (9) while running My Lil Startup.
 
-Noticed something: homeschoolers have amazing science programs, great history resources, solid math... but where's the entrepreneurship? Kids graduate knowing algebra and essay writing, but they've never created value and sold it. Never felt what it's like to build something someone wants.
+We make entrepreneur kits. Kids build real businesses - not lemonade stands.
 
-Our kits fix that. Homeschool kids using them average $400 in their first business. One 11-year-old made $1,200 doing yard work. An 8-year-old sold $600 in friendship bracelets.
+One 11-year-old made $1,200 doing yard work. An 8-year-old sold $600 in bracelets.
 
 Want to review a kit? Or I could write about adding entrepreneurship to your curriculum.
 
-Let me know.
-
-Jon Carder
+Jon
 My Lil Startup
 
 ---
 
-## Follow-up Email (Day 3)
+## Follow-up (Day 3)
 
 **Subject:** Re: Partnership
 
 Hi [Name],
 
-Following up on my email from a few days ago.
-
-Quick recap:
-- 16% commission (double what most pay)
-- Kids earn real money
+Following up. Quick recap:
+- 16% commission
+- My daughter made $847 from our kit
 - Father-daughter story
 
-Know you're busy. Would a 10-minute call be easier than email ping-pong?
+10-minute call work better than email?
 
 Jon
 
 ---
 
-## Follow-up Email (Day 7)
+## Follow-up (Day 7)
 
 **Subject:** Last email
 
@@ -97,9 +84,8 @@ Hi [Name],
 
 Last one, I promise.
 
-If the 16% commission doesn't fit your audience right now, no worries. Thought it was worth asking.
+If the 16% commission doesn't fit right now, no worries.
 
-If things change: jon@mylilstartup.com
+jon@mylilstartup.com if things change.
 
-Thanks,
 Jon
