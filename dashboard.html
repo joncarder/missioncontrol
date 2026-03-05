@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lil Startup - Affiliate Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        h1 { font-size: 28px; margin-bottom: 20px; color: #1a1a1a; }
+        h2 { font-size: 20px; margin: 30px 0 15px; color: #333; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-card h3 { font-size: 14px; color: #666; margin-bottom: 8px; text-transform: uppercase; }
+        .stat-card .number { font-size: 36px; font-weight: bold; color: #2c5aa0; }
+        .stat-card.commission .number { color: #27ae60; }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .column {
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 400px;
+        }
+        .column-header {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .card h4 { font-size: 15px; margin-bottom: 5px; color: #1a1a1a; }
+        .card p { font-size: 13px; color: #666; margin-bottom: 8px; }
+        .card .meta { font-size: 12px; color: #999; }
+        .card .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 5px;
+        }
+        .status-ready { border-left: 4px solid #ffc107; }
+        .status-contacted { border-left: 4px solid #2196f3; }
+        .status-responded { border-left: 4px solid #9c27b0; }
+        .status-signed { border-left: 4px solid #4caf50; }
+        .icon { font-size: 18px; }
+        .log-entry {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #2c5aa0;
+        }
+        .log-date { font-size: 12px; color: #999; }
+        .log-action { font-weight: bold; color: #333; }
+        .log-details { font-size: 13px; color: #666; margin-top: 4px; }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #2c5aa0;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .btn:hover { background: #1e3d6f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My Lil Startup - Affiliate Dashboard</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Prospects</h3>
+                <div class="number">6</div>
+            </div>
+            <div class="stat-card">
+                <h3>Contacted</h3>
+                <div class="number">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Responded</h3>
+                <div class="number">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Signed Up</h3>
+                <div class="number">0</div>
+            </div>
+            <div class="stat-card commission">
+                <h3>Commission Rate</h3>
+                <div class="number">20%</div>
+            </div>
+        </div>
+
+        <h2>📋 Prospects Board</h2>
+        <div class="board">
+            <div class="column">
+                <div class="column-header">
+                    <span class="icon">🔍</span>
+                    Research (6)
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>Hip2Save</h4>
+                    <p>Major deal site promoting kiwico heavily</p>
+                    <span class="tag">Deal Site</span>
+                    <span class="tag">High Traffic</span>
+                    <div class="meta">hip2save.com</div>
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>Homeschool.com</h4>
+                    <p>Huge homeschool audience seeking educational resources</p>
+                    <span class="tag">Homeschool</span>
+                    <span class="tag">Resource Hub</span>
+                    <div class="meta">homeschool.com</div>
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>HomeschoolGiveaways</h4>
+                    <p>Freebies and deals for budget-conscious homeschool parents</p>
+                    <span class="tag">Homeschool</span>
+                    <span class="tag">Deals</span>
+                    <div class="meta">homeschoolgiveaways.com</div>
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>WhatMommyDoes</h4>
+                    <p>Mom blog with "things for kids to make and sell" content</p>
+                    <span class="tag">Mom Blog</span>
+                    <span class="tag">Side Hustle</span>
+                    <div class="meta">whatmommydoes.com</div>
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>ScaryMommy</h4>
+                    <p>Major parenting media site with millennial moms</p>
+                    <span class="tag">Media</span>
+                    <span class="tag">Large Audience</span>
+                    <div class="meta">scarymommy.com</div>
+                </div>
+                
+                <div class="card status-ready">
+                    <h4>CafeMom</h4>
+                    <p>Large parenting community, active users</p>
+                    <span class="tag">Community</span>
+                    <span class="tag">Reviews</span>
+                    <div class="meta">cafemom.com</div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="column-header">
+                    <span class="icon">📧</span>
+                    Contacted (0)
+                </div>
+                <p style="color: #999; text-align: center; padding: 40px 0;">No contacts yet</p>
+            </div>
+            
+            <div class="column">
+                <div class="column-header">
+                    <span class="icon">💬</span>
+                    Responded (0)
+                </div>
+                <p style="color: #999; text-align: center; padding: 40px 0;">No responses yet</p>
+            </div>
+            
+            <div class="column">
+                <div class="column-header">
+                    <span class="icon">✅</span>
+                    Signed Up (0)
+                </div>
+                <p style="color: #999; text-align: center; padding: 40px 0;">No signups yet</p>
+            </div>
+        </div>
+
+        <h2>📝 Recent Activity</h2>
+        <div class="log-entry">
+            <div class="log-date">2026-03-02</div>
+            <div class="log-action">Research Complete</div>
+            <div class="log-details">Identified 6 kiwico.com affiliates as initial targets</div>
+        </div>
+        <div class="log-entry">
+            <div class="log-date">2026-03-02</div>
+            <div class="log-action">Email Setup</div>
+            <div class="log-details">Created sarah@mylilstartup.com account for outreach</div>
+        </div>
+        <div class="log-entry">
+            <div class="log-date">2026-03-02</div>
+            <div class="log-action">Dashboard Created</div>
+            <div class="log-details">Built affiliate tracking system and strategy docs</div>
+        </div>
+
+        <h2>🔗 Quick Links</h2>
+        <a href="affiliate-strategy.md" class="btn">View Strategy Document</a>
+        <a href="https://ui.awin.com/merchant-profile/118261" class="btn">Awin Program</a>
+    </div>
+</body>
+</html>

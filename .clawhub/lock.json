@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1772492780251
+    },
+    "agent-memory": {
+      "version": "1.0.0",
+      "installedAt": 1772492967983
+    },
+    "browser-use": {
+      "version": "1.0.2",
+      "installedAt": 1772671047321
+    }
+  }
+}
