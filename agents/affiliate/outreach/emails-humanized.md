@@ -1,21 +1,21 @@
-# Affiliate Outreach Emails (Humanized - Short & Personal)
+# Affiliate Outreach Emails (CORRECTED - Real Data)
 
 ## Email 1: Deal/Coupon Sites
 
-**Subject:** 16% commission + my daughter made $847
+**Subject:** 16% commission + real entrepreneurship for kids
 
 Hi [Name],
 
-I'm Jon. My daughter Chloe (she's 9) and I started My Lil Startup last year.
+I'm Jon. My daughter Chloe (she's 9) and I started My Lil Startup.
 
-We sell entrepreneur kits for kids. Not STEM activities - actual businesses. Chloe made $847 selling dog treats from one of our kits.
+We sell entrepreneur kits for kids. Real businesses, not STEM activities. Chloe makes about $200 in an afternoon selling slime she creates from our kit.
 
-Saw you're promoting KiwiCo. Smart - they're huge. But we pay better:
+Saw you're promoting KiwiCo. We pay better:
 - 16% commission (they pay 8-10%)
 - $6-$16 per sale
-- Real entrepreneurship angle
+- Kids learn real entrepreneurship
 
-Worth a 10-minute call?
+Worth a quick call?
 
 Jon
 My Lil Startup
@@ -24,15 +24,15 @@ My Lil Startup
 
 ## Email 2: Parenting Blogs
 
-**Subject:** My 9-year-old made $847
+**Subject:** My 9-year-old makes $200 selling slime
 
 Hi [Name],
 
 I'm Jon. My daughter Chloe and I run My Lil Startup together.
 
-We make entrepreneur kits. Real businesses, not pretend stuff. Chloe made $847 selling dog treats. Another kid cleared $1,200 doing yard work.
+We make entrepreneur kits. Real businesses. Chloe makes about $200 in an afternoon selling slime she creates from our kit.
 
-Guest post idea: "5 business ideas for kids under 12 that actually make money"
+Guest post idea: "How my kid started a business at 9 (and made $200)"
 
 Interested?
 
@@ -42,17 +42,15 @@ Jon
 
 ## Email 3: Homeschool Sites
 
-**Subject:** Curriculum gap
+**Subject:** Real entrepreneurship for homeschoolers
 
 Hi [Name],
 
 I'm Jon. I homeschool my daughter Chloe (9) while running My Lil Startup.
 
-We make entrepreneur kits. Kids build real businesses - not lemonade stands.
+We make entrepreneur kits. Kids build real businesses. Chloe makes about $200 in an afternoon selling slime.
 
-One 11-year-old made $1,200 doing yard work. An 8-year-old sold $600 in bracelets.
-
-Want to review a kit? Or I could write about adding entrepreneurship to your curriculum.
+Want to review a kit? Happy to send one free. Or I could write about adding entrepreneurship to your curriculum.
 
 Jon
 My Lil Startup
@@ -67,7 +65,7 @@ Hi [Name],
 
 Following up. Quick recap:
 - 16% commission
-- My daughter made $847 from our kit
+- My daughter makes $200 selling slime from our kit
 - Father-daughter story
 
 10-minute call work better than email?
