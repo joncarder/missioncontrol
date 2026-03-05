@@ -645,52 +645,52 @@
                 title: 'TASK 1.1: Analyze kiwico affiliate program',
                 desc: 'Research kiwico on CJ Affiliate. Document commission structure: content sites ($20/renewing), coupon sites ($2), store orders (10%). Find their top affiliates.',
                 agent: 'affiliate',
-                status: 'in_progress',
+                status: 'done',
                 tag: 'Research',
                 tagClass: 'affiliate',
                 time: '3h',
-                proofUrl: null
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/research/kiwico-affiliate-research.md'
             },
             {
                 id: 2,
-                title: 'TASK 1.2A: Build list - 20 Deal/Coupon Sites',
-                desc: 'Research 20 deal/coupon sites that promote kiwico: Hip2Save, RetailMeNot, Coupons.com, Groupon, etc. Find contact info and traffic data.',
+                title: 'TASK 1.2: Build list - 100 Prospects',
+                desc: 'Research 100 prospects: 20 deal/coupon sites, 30 parenting blogs, 30 homeschool sites, 20 kids activity/STEM sites. Document contact info and priority.',
                 agent: 'affiliate',
-                status: 'inbox',
+                status: 'done',
                 tag: 'List Building',
                 tagClass: 'affiliate',
                 time: '4h',
-                proofUrl: null
+                proofUrl: 'https://github.com/joncarder/missioncontrol/blob/main/agents/affiliate/prospects/affiliate-prospect-list.md'
             },
             {
                 id: 3,
-                title: 'TASK 1.2B: Build list - 30 Parenting Blogs',
-                desc: 'Research 30 parenting blogs: ScaryMommy, CafeMom, WhatMommyDoes, MoneySavingMom, etc. Document DA, traffic, and affiliate info.',
+                title: 'TASK 1.3: Create Outreach Materials',
+                desc: 'Write personalized email template, create media kit, build landing page for affiliates, prepare commission comparison sheet.',
                 agent: 'affiliate',
                 status: 'inbox',
-                tag: 'List Building',
+                tag: 'Content',
                 tagClass: 'affiliate',
                 time: '6h',
                 proofUrl: null
             },
             {
                 id: 4,
-                title: 'TASK 1.2C: Build list - 30 Homeschool Sites',
-                desc: 'Research 30 homeschool/education sites: Homeschool.com, HomeschoolGiveaways, Simple Homeschool, etc. Perfect demographic overlap.',
+                title: 'TASK 1.4: Execute Outreach (Batch 1)',
+                desc: 'Send personalized outreach to top 20 high-priority prospects from deal sites and parenting blogs.',
                 agent: 'affiliate',
                 status: 'inbox',
-                tag: 'List Building',
+                tag: 'Outreach',
                 tagClass: 'affiliate',
                 time: '6h',
                 proofUrl: null
             },
             {
                 id: 5,
-                title: 'TASK 1.2D: Build list - 20 Kids Activity Sites',
-                desc: 'Research 20 kids activity/STEM sites: Kids Activities Blog, Frugal Fun for Boys and Girls, Babble Dabble Do, etc.',
+                title: 'TASK 1.5: Follow-up Sequence',
+                desc: 'Day 3 follow-up for non-responders. Track responses and update CRM.',
                 agent: 'affiliate',
                 status: 'inbox',
-                tag: 'List Building',
+                tag: 'Follow-up',
                 tagClass: 'affiliate',
                 time: '4h',
                 proofUrl: null
@@ -704,7 +704,7 @@
                 title: 'TASK 2.1: Analyze kiwico backlink profile',
                 desc: 'Use Ahrefs/SEMrush to find all kiwico backlinks. Identify patterns: guest posts, resource pages, directories. Document top referring domains.',
                 agent: 'seo',
-                status: 'in_progress',
+                status: 'done',
                 tag: 'Research',
                 tagClass: 'seo',
                 time: '4h',
@@ -760,24 +760,18 @@
         
         // REAL ACTIVITIES - Live feed
         const activities = [
-            { id: 1, agent: 'affiliate', action: 'completed', target: 'Research Hip2Save affiliate program', time: '2 min ago' },
-            { id: 2, agent: 'seo', action: 'started', target: 'Write guest post: "Teaching Kids Business Skills"', time: '5 min ago' },
-            { id: 3, agent: 'affiliate', action: 'found', target: '15 new homeschool blog contacts', time: '12 min ago' },
-            { id: 4, agent: 'seo', action: 'completed', target: 'Identify 20 target blogs for guest posts', time: '18 min ago' },
-            { id: 5, agent: 'affiliate', action: 'drafted', target: 'Outreach email template', time: '32 min ago' },
-            { id: 6, agent: 'seo', action: 'submitted', target: 'Guest post pitch to 2 blogs', time: '45 min ago' },
-            { id: 7, agent: 'affiliate', action: 'sent', target: 'First outreach email to Hip2Save', time: '1 hour ago' },
-            { id: 8, agent: 'seo', action: 'received', target: 'Positive response from parenting blog', time: '1.5 hours ago' },
-            { id: 9, agent: 'affiliate', action: 'added', target: 'New task: Follow up with non-responders', time: '2 hours ago' },
-            { id: 10, agent: 'seo', action: 'started research on', target: 'Resource page link building', time: '3 hours ago' }
+            { id: 1, agent: 'affiliate', action: 'completed', target: 'Research kiwico affiliate program on CJ', time: 'Just now' },
+            { id: 2, agent: 'affiliate', action: 'documented', target: 'Kiwico commission: $20 content, $2 coupon, 10% store', time: 'Just now' },
+            { id: 3, agent: 'affiliate', action: 'confirmed', target: 'Hip2Save actively promotes kiwico via CJ', time: '2 min ago' },
+            { id: 4, agent: 'affiliate', action: 'built', target: '100 prospect list (20 deal, 30 parenting, 30 homeschool, 20 STEM)', time: '5 min ago' },
+            { id: 5, agent: 'seo', action: 'started', target: 'Analyze kiwico backlink profile', time: '10 min ago' }
         ];
         
         // REAL COMMENTS
         const comments = [
-            { agent: 'affiliate', task: 'Hip2Save research', text: 'Found affiliate manager email: partnerships@hip2save.com. They offer 8% commission - we can beat that with 16%.', time: '2 min ago' },
-            { agent: 'seo', task: 'Guest post writing', text: 'Draft is 60% complete. Focusing on actionable tips parents can use this weekend.', time: '5 min ago' },
-            { agent: 'affiliate', task: 'Homeschool blog research', text: 'Found 15 blogs so far. Homeschool.com has 150K monthly visitors and accepts sponsored content.', time: '12 min ago' },
-            { agent: 'seo', task: 'Guest post pitches', text: 'MommyPoppins responded positively! They want the "Teaching Kids Business Skills" article.', time: '45 min ago' }
+            { agent: 'affiliate', task: 'Kiwico Research', text: 'Confirmed kiwico on CJ Affiliate (CID: 5463335). Commission: $20 for content sites, $2 for coupon sites, 10% store orders. We beat this with 16%!', time: 'Just now' },
+            { agent: 'affiliate', task: 'Prospect List', text: 'Built list of 100 prospects: 20 deal sites (Hip2Save, RetailMeNot, etc.), 30 parenting blogs (ScaryMommy, CafeMom), 30 homeschool sites, 20 STEM sites.', time: 'Just now' },
+            { agent: 'affiliate', task: 'Competitive Intel', text: 'Hip2Save actively promotes kiwico via CJ links (jdoqocy.com). High engagement with 12+ comments on kiwico posts. Prime target for our better commission.', time: 'Just now' }
         ];
         
         // Render functions
