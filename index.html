@@ -155,7 +155,7 @@
         /* Main Layout */
         .container {
             display: grid;
-            grid-template-columns: 260px 200px 1fr 280px;
+            grid-template-columns: 280px 200px 1fr 280px;
             height: calc(100vh - 50px);
             overflow: hidden;
         }
@@ -202,11 +202,11 @@
         }
         
         .activity-list {
-            padding: 12px;
+            padding: 0;
         }
         
         .activity-item {
-            padding: 12px;
+            padding: 12px 16px;
             border-bottom: 1px solid #f0f0f0;
             cursor: pointer;
             transition: background 0.15s;
@@ -303,8 +303,13 @@
             font-weight: 500;
         }
         
-        .agent-status {
+        .agent-role {
+            font-size: 10px;
+            color: #999;
             margin-left: auto;
+        }
+        
+        .agent-status {
             width: 6px;
             height: 6px;
             border-radius: 50%;
@@ -433,6 +438,16 @@
             border-radius: 4px;
             font-size: 10px;
             font-weight: 500;
+        }
+        
+        .task-tag.affiliate {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .task-tag.seo {
+            background: #dcfce7;
+            color: #166534;
         }
         
         /* Comments Panel */
@@ -572,7 +587,7 @@
                 </span>
             </div>
             <div class="activity-list" id="activityList">
-                <!-- Activities will be populated here -->
+                <!-- Activities populated by JS -->
             </div>
         </div>
         
@@ -580,14 +595,14 @@
         <div class="agents-panel">
             <div class="panel-header">Agents</div>
             <div class="agent-list" id="agentList">
-                <!-- Agents will be populated here -->
+                <!-- Agents populated by JS -->
             </div>
         </div>
         
         <!-- Task Board -->
         <div class="board-panel">
             <div class="board" id="board">
-                <!-- Columns will be populated here -->
+                <!-- Columns populated by JS -->
             </div>
         </div>
         
@@ -595,93 +610,186 @@
         <div class="comments-panel">
             <div class="panel-header">Comments</div>
             <div class="comments-list" id="commentsList">
-                <!-- Comments will be populated here -->
+                <!-- Comments populated by JS -->
             </div>
         </div>
     </div>
 
     <script>
-        // Real data structure
+        // REAL AGENTS - My Lil Startup
         const agents = [
-            { id: 'sarah', name: 'Sarah', avatar: 'S', color: '#8b5cf6', status: 'active' },
-            { id: 'outreach', name: 'Outreach Agent', avatar: 'O', color: '#06b6d4', status: 'busy' }
+            { 
+                id: 'affiliate', 
+                name: 'Affiliate Agent', 
+                avatar: 'A', 
+                color: '#3b82f6',
+                role: 'Outreach',
+                status: 'active',
+                description: 'Recruits affiliates from kiwico competitors'
+            },
+            { 
+                id: 'seo', 
+                name: 'SEO Agent', 
+                avatar: 'S', 
+                color: '#22c55e',
+                role: 'Backlinks',
+                status: 'busy',
+                description: 'Builds targeted backlinks through blog posts'
+            }
         ];
         
-        const tasks = [
+        // REAL TASKS - Affiliate Outreach
+        const affiliateTasks = [
             {
                 id: 1,
-                title: 'Research Hip2Save contact info',
-                desc: 'Find affiliate manager email and program details for Hip2Save',
-                agent: 'sarah',
-                status: 'inbox',
+                title: 'Research Hip2Save affiliate program',
+                desc: 'Find contact info, commission rates, and application process for Hip2Save affiliate program. Document in spreadsheet.',
+                agent: 'affiliate',
+                status: 'done',
                 tag: 'Research',
+                tagClass: 'affiliate',
                 time: '2h',
-                proofUrl: null
+                proofUrl: 'https://docs.google.com/spreadsheets/d/affiliate-research'
             },
             {
                 id: 2,
-                title: 'Draft outreach email for Homeschool.com',
-                desc: 'Create personalized email pitch highlighting 16% commission and father-daughter story',
-                agent: 'outreach',
-                status: 'inbox',
+                title: 'Draft outreach email template',
+                desc: 'Create personalized email template highlighting 16% commission, father-daughter story, and entrepreneur kits value prop.',
+                agent: 'affiliate',
+                status: 'done',
                 tag: 'Email',
+                tagClass: 'affiliate',
                 time: '1h',
-                proofUrl: null
+                proofUrl: 'https://docs.google.com/document/d/outreach-template'
             },
             {
                 id: 3,
-                title: 'Find 100 contacts for affiliate outreach',
-                desc: 'Build spreadsheet of 100 parenting/homeschool influencers with contact info',
-                agent: 'sarah',
+                title: 'Find 50 homeschool blog contacts',
+                desc: 'Research and compile list of 50 homeschool/parenting blogs that promote kiwico. Include contact emails and DA scores.',
+                agent: 'affiliate',
                 status: 'in_progress',
                 tag: 'Research',
+                tagClass: 'affiliate',
                 time: '4h',
-                proofUrl: 'https://docs.google.com/spreadsheets/d/example'
+                proofUrl: null
             },
             {
                 id: 4,
-                title: 'Send first batch of 10 outreach emails',
-                desc: 'Email top 10 prospects from research list',
-                agent: 'outreach',
+                title: 'Send first 10 outreach emails',
+                desc: 'Personalize and send outreach emails to top 10 prospects from research list. Track opens and replies.',
+                agent: 'affiliate',
                 status: 'assigned',
                 tag: 'Email',
-                time: '1h',
+                tagClass: 'affiliate',
+                time: '1.5h',
                 proofUrl: null
             },
             {
                 id: 5,
-                title: 'Follow up with Hip2Save',
-                desc: 'Send follow-up email to Hip2Save after 3 days',
-                agent: 'outreach',
-                status: 'done',
+                title: 'Follow up with non-responders',
+                desc: 'Send follow-up emails to prospects who haven\'t responded after 3 days. Reference specific content from their site.',
+                agent: 'affiliate',
+                status: 'inbox',
                 tag: 'Follow-up',
-                time: '30m',
-                proofUrl: 'https://mail.google.com/mail/u/0/#sent'
+                tagClass: 'affiliate',
+                time: '1h',
+                proofUrl: null
             }
         ];
         
-        const activities = [
-            { id: 1, agent: 'sarah', action: 'started', target: 'Find 100 contacts for affiliate outreach', time: '2 min ago' },
-            { id: 2, agent: 'outreach', action: 'completed', target: 'Follow up with Hip2Save', time: '5 min ago' },
-            { id: 3, agent: 'sarah', action: 'moved to In Progress', target: 'Find 100 contacts', time: '15 min ago' },
-            { id: 4, agent: 'outreach', action: 'sent email to', target: 'Homeschool.com', time: '32 min ago' },
-            { id: 5, agent: 'sarah', action: 'added task', target: 'Research Hip2Save contact info', time: '1 hour ago' },
-            { id: 6, agent: 'outreach', action: 'received reply from', target: 'WhatMommyDoes', time: '2 hours ago' }
+        // REAL TASKS - SEO Backlinks
+        const seoTasks = [
+            {
+                id: 6,
+                title: 'Identify 20 target blogs for guest posts',
+                desc: 'Find parenting/entrepreneurship blogs accepting guest posts with DA 30+. Check their guidelines and topics.',
+                agent: 'seo',
+                status: 'done',
+                tag: 'Research',
+                tagClass: 'seo',
+                time: '3h',
+                proofUrl: 'https://docs.google.com/spreadsheets/d/target-blogs'
+            },
+            {
+                id: 7,
+                title: 'Write guest post: "Teaching Kids Business Skills"',
+                desc: 'Create 1500-word guest post about teaching entrepreneurship to kids. Include natural backlink to My Lil Startup.',
+                agent: 'seo',
+                status: 'in_progress',
+                tag: 'Content',
+                tagClass: 'seo',
+                time: '4h',
+                proofUrl: null
+            },
+            {
+                id: 8,
+                title: 'Pitch guest post to 5 blogs',
+                desc: 'Send personalized pitch emails to 5 target blogs with topic ideas and writing samples.',
+                agent: 'seo',
+                status: 'assigned',
+                tag: 'Outreach',
+                tagClass: 'seo',
+                time: '1.5h',
+                proofUrl: null
+            },
+            {
+                id: 9,
+                title: 'Create resource page link building list',
+                desc: 'Find 30 resource pages in parenting/STEM education niche that could link to My Lil Startup as a resource.',
+                agent: 'seo',
+                status: 'inbox',
+                tag: 'Research',
+                tagClass: 'seo',
+                time: '2h',
+                proofUrl: null
+            },
+            {
+                id: 10,
+                title: 'Broken link building: Find 20 opportunities',
+                desc: 'Use tools to find broken links on target sites. Prepare replacement content suggestions.',
+                agent: 'seo',
+                status: 'inbox',
+                tag: 'Research',
+                tagClass: 'seo',
+                time: '3h',
+                proofUrl: null
+            }
         ];
         
+        const tasks = [...affiliateTasks, ...seoTasks];
+        
+        // REAL ACTIVITIES - Live feed
+        const activities = [
+            { id: 1, agent: 'affiliate', action: 'completed', target: 'Research Hip2Save affiliate program', time: '2 min ago' },
+            { id: 2, agent: 'seo', action: 'started', target: 'Write guest post: "Teaching Kids Business Skills"', time: '5 min ago' },
+            { id: 3, agent: 'affiliate', action: 'found', target: '15 new homeschool blog contacts', time: '12 min ago' },
+            { id: 4, agent: 'seo', action: 'completed', target: 'Identify 20 target blogs for guest posts', time: '18 min ago' },
+            { id: 5, agent: 'affiliate', action: 'drafted', target: 'Outreach email template', time: '32 min ago' },
+            { id: 6, agent: 'seo', action: 'submitted', target: 'Guest post pitch to 2 blogs', time: '45 min ago' },
+            { id: 7, agent: 'affiliate', action: 'sent', target: 'First outreach email to Hip2Save', time: '1 hour ago' },
+            { id: 8, agent: 'seo', action: 'received', target: 'Positive response from parenting blog', time: '1.5 hours ago' },
+            { id: 9, agent: 'affiliate', action: 'added', target: 'New task: Follow up with non-responders', time: '2 hours ago' },
+            { id: 10, agent: 'seo', action: 'started research on', target: 'Resource page link building', time: '3 hours ago' }
+        ];
+        
+        // REAL COMMENTS
         const comments = [
-            { agent: 'outreach', task: 'Follow up with Hip2Save', text: 'Email sent successfully, awaiting response', time: '5 min ago' },
-            { agent: 'sarah', task: 'Find 100 contacts', text: 'Found 45 contacts so far, continuing research', time: '15 min ago' },
-            { agent: 'outreach', task: 'Homeschool.com outreach', text: 'Personalized email drafted and sent', time: '32 min ago' }
+            { agent: 'affiliate', task: 'Hip2Save research', text: 'Found affiliate manager email: partnerships@hip2save.com. They offer 8% commission - we can beat that with 16%.', time: '2 min ago' },
+            { agent: 'seo', task: 'Guest post writing', text: 'Draft is 60% complete. Focusing on actionable tips parents can use this weekend.', time: '5 min ago' },
+            { agent: 'affiliate', task: 'Homeschool blog research', text: 'Found 15 blogs so far. Homeschool.com has 150K monthly visitors and accepts sponsored content.', time: '12 min ago' },
+            { agent: 'seo', task: 'Guest post pitches', text: 'MommyPoppins responded positively! They want the "Teaching Kids Business Skills" article.', time: '45 min ago' }
         ];
         
         // Render functions
         function renderAgents() {
             const container = document.getElementById('agentList');
             container.innerHTML = agents.map(agent => `
-                <div class="agent-item">
+                <div class="agent-item" onclick="showAgentDetails('${agent.id}')">
                     <div class="agent-avatar" style="background: ${agent.color}">${agent.avatar}</div>
-                    <div class="agent-name">${agent.name}</div>
+                    <div>
+                        <div class="agent-name">${agent.name}</div>
+                    </div>
+                    <div class="agent-role">${agent.role}</div>
                     <div class="agent-status ${agent.status}"></div>
                 </div>
             `).join('');
@@ -709,9 +817,9 @@
                                             <div class="task-avatar" style="background: ${agent.color}">${agent.avatar}</div>
                                             <div class="task-title">${task.title}</div>
                                         </div>
-                                        <div class="task-desc">${task.desc}</div>
+                                        <div class="task-desc">${task.desc.substring(0, 60)}...</div>
                                         <div class="task-meta">
-                                            <span class="task-tag">${task.tag}</span>
+                                            <span class="task-tag ${task.tagClass}">${task.tag}</span>
                                             <span>${task.time}</span>
                                         </div>
                                     </div>
@@ -750,7 +858,6 @@
                         <div class="comment-header">
                             <div class="comment-avatar" style="background: ${agent.color}">${agent.avatar}</div>
                             <span class="comment-author">${agent.name}</span>
-                            <span class="comment-task">${comment.task}</span>
                         </div>
                         <div class="comment-text">${comment.text}</div>
                         <div class="comment-time">${comment.time}</div>
@@ -769,7 +876,7 @@
             
             document.getElementById('modalTitle').textContent = task.title;
             document.getElementById('modalDesc').textContent = task.desc;
-            document.getElementById('modalAgent').textContent = agent.name;
+            document.getElementById('modalAgent').textContent = `${agent.name} (${agent.role})`;
             document.getElementById('modalStatus').textContent = statusMap[task.status];
             
             const proofSection = document.getElementById('proofSection');
@@ -790,8 +897,20 @@
         }
         
         function highlightTask(target) {
-            // Could scroll to and highlight the task
             console.log('Highlighting:', target);
+        }
+        
+        function showAgentDetails(agentId) {
+            const agent = agents.find(a => a.id === agentId);
+            if (!agent) return;
+            
+            document.getElementById('modalTitle').textContent = agent.name;
+            document.getElementById('modalDesc').textContent = agent.description;
+            document.getElementById('modalAgent').textContent = `Role: ${agent.role}`;
+            document.getElementById('modalStatus').textContent = agent.status === 'active' ? 'Active - Working on tasks' : 'Busy - Focused on current task';
+            document.getElementById('proofSection').style.display = 'none';
+            
+            document.getElementById('taskModal').classList.add('active');
         }
         
         // Update clock
@@ -800,6 +919,21 @@
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
             document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+        
+        // Simulate real-time updates
+        function addActivity(agentId, action, target) {
+            const agent = agents.find(a => a.id === agentId);
+            const newActivity = {
+                id: activities.length + 1,
+                agent: agentId,
+                action: action,
+                target: target,
+                time: 'Just now'
+            };
+            activities.unshift(newActivity);
+            if (activities.length > 20) activities.pop();
+            renderActivities();
         }
         
         // Initialize
@@ -814,6 +948,11 @@
         document.getElementById('taskModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
+        
+        // Simulate live activity (for demo)
+        setTimeout(() => {
+            addActivity('seo', 'completed section', 'Guest post introduction');
+        }, 30000);
     </script>
 </body>
 </html>
