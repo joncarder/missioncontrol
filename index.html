@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Control | My Lil Startup</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Mission Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,608 +12,612 @@
             box-sizing: border-box;
         }
         
-        :root {
-            --paper: #faf8f5;
-            --paper-dark: #f5f0e8;
-            --ink: #2c241b;
-            --ink-light: #5c5143;
-            --accent: #c45c26;
-            --success: #2d6a4f;
-            --border: #e8e0d5;
-        }
-        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--paper);
-            color: var(--ink);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            font-size: 14px;
+            line-height: 1.5;
         }
         
-        /* Header */
-        .header {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 1rem;
+        /* Top Bar */
+        .top-bar {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
         }
         
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--ink);
+        .time {
+            font-size: 18px;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .top-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border: 1px solid #e0e0e0;
+            background: #fff;
             border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-        
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        
-        .logo-text p {
-            font-size: 0.75rem;
-            color: var(--ink-light);
-        }
-        
-        /* Stats Bar */
-        .stats {
-            background: var(--paper-dark);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem;
-        }
-        
-        .stats-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--ink);
-        }
-        
-        .stat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--ink-light);
+            font-size: 13px;
+            cursor: pointer;
         }
         
         /* Main Layout */
-        .main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem;
+        .container {
             display: grid;
-            grid-template-columns: 280px 1fr 280px;
-            gap: 1.5rem;
+            grid-template-columns: 200px 1fr 280px;
+            height: calc(100vh - 50px);
+            overflow: hidden;
         }
         
-        /* Cards */
-        .card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        /* Left Sidebar - Agents */
+        .agents-panel {
+            background: #fff;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
         }
         
-        .card-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
+        .panel-header {
+            padding: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .agent-list {
+            padding: 8px;
+        }
+        
+        .agent-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-        
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .card-content {
-            padding: 1rem;
-        }
-        
-        /* Activity Feed */
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .activity-item {
-            display: flex;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: var(--paper);
+            gap: 10px;
+            padding: 8px;
             border-radius: 6px;
-            border-left: 3px solid var(--accent);
+            cursor: pointer;
+            transition: background 0.15s;
         }
         
-        .activity-avatar {
-            width: 32px;
-            height: 32px;
-            background: var(--ink);
+        .agent-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .agent-avatar {
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            color: white;
+            font-weight: 600;
+            color: #fff;
             flex-shrink: 0;
         }
         
-        .activity-content {
-            flex: 1;
+        .agent-name {
+            font-size: 13px;
+            font-weight: 500;
         }
         
-        .activity-text {
-            font-size: 0.875rem;
-            line-height: 1.4;
+        .agent-status {
+            margin-left: auto;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
         }
         
-        .activity-time {
-            font-size: 0.75rem;
-            color: var(--ink-light);
-            margin-top: 0.25rem;
+        .agent-status.busy {
+            background: #f59e0b;
         }
         
-        /* Task Board */
+        /* Center - Task Board */
+        .board-panel {
+            background: #f5f5f5;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 16px;
+        }
+        
         .board {
             display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
+            gap: 16px;
+            height: 100%;
+            min-width: max-content;
         }
         
         .column {
-            min-width: 260px;
+            width: 280px;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
         }
         
         .column-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem;
-            background: var(--paper-dark);
-            border-radius: 6px 6px 0 0;
-            border-bottom: 2px solid var(--border);
+            padding: 12px;
+            margin-bottom: 12px;
         }
         
         .column-title {
+            font-size: 13px;
             font-weight: 600;
-            font-size: 0.875rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .column-count {
-            background: white;
-            padding: 0.125rem 0.5rem;
+            background: #e0e0e0;
+            padding: 2px 8px;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 12px;
             font-weight: 600;
+            color: #666;
         }
         
         .column-content {
-            background: var(--paper-dark);
-            border-radius: 0 0 6px 6px;
-            padding: 0.75rem;
-            min-height: 200px;
+            flex: 1;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 10px;
         }
         
         .task-card {
-            background: white;
-            border-radius: 6px;
-            padding: 1rem;
-            border-left: 4px solid var(--accent);
+            background: #fff;
+            border-radius: 8px;
+            padding: 14px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+            cursor: pointer;
+            transition: box-shadow 0.15s;
+        }
+        
+        .task-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
         }
         
         .task-header {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
         }
         
         .task-avatar {
-            width: 32px;
-            height: 32px;
-            background: var(--paper-dark);
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        
+        .task-title {
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .task-desc {
             font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .task-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .task-website {
-            font-size: 0.8rem;
-            color: var(--ink-light);
-            margin-bottom: 0.5rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
         
         .task-meta {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.8rem;
+            gap: 8px;
+            font-size: 11px;
+            color: #999;
         }
         
-        .task-commission {
-            color: var(--accent);
-            font-weight: 600;
+        .task-tag {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
         }
         
-        /* Agent Cards */
-        .agent-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        /* Right Sidebar - Live Feed */
+        .feed-panel {
+            background: #fff;
+            border-left: 1px solid #e0e0e0;
+            overflow-y: auto;
         }
         
-        .agent-card {
+        .feed-list {
+            padding: 12px;
+        }
+        
+        .feed-item {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .feed-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--paper);
-            border-radius: 6px;
-            border: 1px solid var(--border);
+            gap: 8px;
+            margin-bottom: 6px;
         }
         
-        .agent-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--ink);
+        .feed-avatar {
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-        }
-        
-        .agent-info {
-            flex: 1;
-        }
-        
-        .agent-name {
+            font-size: 10px;
             font-weight: 600;
-            font-size: 0.9rem;
+            color: #fff;
         }
         
-        .agent-status {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-            font-size: 0.8rem;
-            color: var(--ink-light);
+        .feed-author {
+            font-weight: 600;
+            font-size: 12px;
         }
         
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--success);
-            border-radius: 50%;
+        .feed-action {
+            font-size: 12px;
+            color: #666;
         }
         
-        .status-dot.busy {
-            background: var(--accent);
+        .feed-content {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5;
+            margin-left: 32px;
         }
         
-        .agent-task {
-            font-size: 0.75rem;
-            color: var(--ink-light);
-            margin-top: 0.25rem;
+        .feed-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            margin-left: 32px;
         }
         
         /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .main {
+            .container {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                grid-template-rows: auto 1fr;
             }
             
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .agents-panel,
+            .feed-panel {
+                display: none;
             }
             
-            .board {
-                gap: 0.75rem;
-            }
-            
-            .column {
-                min-width: 280px;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .header-content {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .logo-text h1 {
-                font-size: 1rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-            
-            .stat-value {
-                font-size: 1.5rem;
-            }
-            
-            .main {
-                padding: 1rem;
+            .board-panel {
+                padding: 12px;
             }
             
             .column {
-                min-width: 260px;
+                width: 260px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">📰</div>
-                <div class="logo-text">
-                    <h1>Mission Control</h1>
-                    <p>My Lil Startup • Affiliate Recruitment</p>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Stats -->
-    <div class="stats">
-        <div class="stats-grid">
-            <div>
-                <div class="stat-value">6</div>
-                <div class="stat-label">Total Prospects</div>
-            </div>
-            <div>
-                <div class="stat-value">2</div>
-                <div class="stat-label">In Inbox</div>
-            </div>
-            <div>
-                <div class="stat-value">1</div>
-                <div class="stat-label">In Progress</div>
-            </div>
-            <div>
-                <div class="stat-value">1</div>
-                <div class="stat-label">Closed</div>
-            </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo">MISSION CONTROL</div>
+        <div class="time">11:35</div>
+        <div class="top-actions">
+            <button class="btn">Share</button>
+            <button class="btn">Settings</button>
         </div>
     </div>
     
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Activity Feed -->
-        <section class="card">
-            <div class="card-header">
-                <h2 class="card-title">Activity Feed</h2>
-            </div>
-            <div class="card-content">
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <div class="activity-avatar">S</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Sarah</strong> moved <strong>Hip2Save</strong> to In Progress</div>
-                            <div class="activity-time">2 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-avatar">O</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Outreach Agent</strong> sent email to <strong>Homeschool.com</strong></div>
-                            <div class="activity-time">15 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-avatar">S</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Sarah</strong> added <strong>ScaryMommy</strong> to prospects</div>
-                            <div class="activity-time">1 hour ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-avatar">O</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Outreach Agent</strong> received reply from <strong>WhatMommyDoes</strong></div>
-                            <div class="activity-time">3 hours ago</div>
-                        </div>
-                    </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Panel - Agents -->
+        <div class="agents-panel">
+            <div class="panel-header">Agents</div>
+            <div class="agent-list">
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #8b5cf6;">J</div>
+                    <div class="agent-name">Jarvis</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #06b6d4;">F</div>
+                    <div class="agent-name">Friday</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #ef4444;">Fu</div>
+                    <div class="agent-name">Fury</div>
+                    <div class="agent-status busy"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #f59e0b;">L</div>
+                    <div class="agent-name">Loki</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #10b981;">V</div>
+                    <div class="agent-name">Vision</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #ec4899;">W</div>
+                    <div class="agent-name">Wanda</div>
+                    <div class="agent-status busy"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #f97316;">P</div>
+                    <div class="agent-name">Pepper</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #6366f1;">Q</div>
+                    <div class="agent-name">Quill</div>
+                    <div class="agent-status"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #14b8a6;">S</div>
+                    <div class="agent-name">Shuri</div>
+                    <div class="agent-status busy"></div>
+                </div>
+                <div class="agent-item">
+                    <div class="agent-avatar" style="background: #84cc16;">Wo</div>
+                    <div class="agent-name">Wong</div>
+                    <div class="agent-status"></div>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Task Board -->
-        <section class="card">
-            <div class="card-header">
-                <h2 class="card-title">Task Board</h2>
-                <span style="font-size: 0.875rem; color: var(--ink-light);">6 prospects</span>
-            </div>
-            <div class="card-content">
-                <div class="board">
-                    <!-- Inbox Column -->
-                    <div class="column">
-                        <div class="column-header" style="border-bottom-color: #9ca3af;">
-                            <span class="column-title">Inbox</span>
-                            <span class="column-count">2</span>
-                        </div>
-                        <div class="column-content">
-                            <div class="task-card" style="border-left-color: #9ca3af;">
-                                <div class="task-header">
-                                    <div class="task-avatar">H</div>
-                                    <div class="task-name">Hip2Save</div>
-                                </div>
-                                <div class="task-website">hip2save.com</div>
-                                <div class="task-meta">
-                                    <span>16% commission</span>
-                                </div>
-                            </div>
-                            <div class="task-card" style="border-left-color: #9ca3af;">
-                                <div class="task-header">
-                                    <div class="task-avatar">H</div>
-                                    <div class="task-name">Homeschool.com</div>
-                                </div>
-                                <div class="task-website">homeschool.com</div>
-                                <div class="task-meta">
-                                    <span>16% commission</span>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Center Panel - Task Board -->
+        <div class="board-panel">
+            <div class="board">
+                <!-- Inbox Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-title">Inbox</span>
+                        <span class="column-count">3</span>
                     </div>
-                    
-                    <!-- Assigned Column -->
-                    <div class="column">
-                        <div class="column-header" style="border-bottom-color: #60a5fa;">
-                            <span class="column-title">Assigned</span>
-                            <span class="column-count">1</span>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #8b5cf6;">J</div>
+                                <div class="task-title">Capture ChatGPT Optimizations & Document in Notion</div>
+                            </div>
+                            <div class="task-desc">Review and document all ChatGPT optimization strategies in the shared Notion workspace.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Documentation</span>
+                                <span>2h</span>
+                            </div>
                         </div>
-                        <div class="column-content">
-                            <div class="task-card" style="border-left-color: #60a5fa;">
-                                <div class="task-header">
-                                    <div class="task-avatar">H</div>
-                                    <div class="task-name">HomeschoolGiveaways</div>
-                                </div>
-                                <div class="task-website">homeschoolgiveaways.com</div>
-                                <div class="task-meta">
-                                    <span>16% commission</span>
-                                </div>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #f59e0b;">L</div>
+                                <div class="task-title">Content Hiring: Audit Using Rubric Scoring Sheet (SaaS)</div>
+                            </div>
+                            <div class="task-desc">Evaluate content writer candidates using the established rubric scoring system.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Hiring</span>
+                                <span>4h</span>
+                            </div>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #10b981;">V</div>
+                                <div class="task-title">Design Experience: Revenue Mechanics (SaaS Cheat Code)</div>
+                            </div>
+                            <div class="task-desc">Create design specifications for revenue-related features based on SaaS Cheat Code framework.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Design</span>
+                                <span>6h</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- In Progress Column -->
-                    <div class="column">
-                        <div class="column-header" style="border-bottom-color: #f59e0b;">
-                            <span class="column-title">In Progress</span>
-                            <span class="column-count">1</span>
+                </div>
+                
+                <!-- Assigned Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-title">Assigned</span>
+                        <span class="column-count">4</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #06b6d4;">F</div>
+                                <div class="task-title">Product Demo Video: Script</div>
+                            </div>
+                            <div class="task-desc">Write compelling script for the new product demo video targeting enterprise customers.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Content</span>
+                                <span>3h</span>
+                            </div>
                         </div>
-                        <div class="column-content">
-                            <div class="task-card" style="border-left-color: #f59e0b;">
-                                <div class="task-header">
-                                    <div class="task-avatar">W</div>
-                                    <div class="task-name">WhatMommyDoes</div>
-                                </div>
-                                <div class="task-website">whatmommydoes.com</div>
-                                <div class="task-meta">
-                                    <span>16% commission</span>
-                                </div>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #ec4899;">W</div>
+                                <div class="task-title">Customer Interview: Tweet Material</div>
+                            </div>
+                            <div class="task-desc">Extract key insights from customer interviews and create tweet thread content.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Social</span>
+                                <span>2h</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Review Column -->
-                    <div class="column">
-                        <div class="column-header" style="border-bottom-color: #a855f7;">
-                            <span class="column-title">Review</span>
-                            <span class="column-count">0</span>
+                </div>
+                
+                <!-- In Progress Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-title">In Progress</span>
+                        <span class="column-count">2</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #ef4444;">Fu</div>
+                                <div class="task-title">Shopify vs Zendesk: AI Comparison</div>
+                            </div>
+                            <div class="task-desc">Research and compare AI capabilities between Shopify and Zendesk platforms.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Research</span>
+                                <span>8h</span>
+                            </div>
                         </div>
-                        <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #6366f1;">Q</div>
+                                <div class="task-title">Twitter Content: 10 Tweets This Week</div>
+                            </div>
+                            <div class="task-desc">Draft and schedule 10 engaging tweets for the week across product updates and industry insights.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Social</span>
+                                <span>4h</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Done Column -->
-                    <div class="column">
-                        <div class="column-header" style="border-bottom-color: #10b981;">
-                            <span class="column-title">Done</span>
-                            <span class="column-count">1</span>
+                </div>
+                
+                <!-- Review Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-title">Review</span>
+                        <span class="column-count">3</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #14b8a6;">S</div>
+                                <div class="task-title">Shopify Blog Landing Page</div>
+                            </div>
+                            <div class="task-desc">Design and implement new landing page for Shopify blog section with improved conversion focus.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Design</span>
+                                <span>6h</span>
+                            </div>
                         </div>
-                        <div class="column-content">
-                            <div class="task-card" style="border-left-color: #10b981;">
-                                <div class="task-header">
-                                    <div class="task-avatar">S</div>
-                                    <div class="task-name">ScaryMommy</div>
-                                </div>
-                                <div class="task-website">scarymommy.com</div>
-                                <div class="task-meta">
-                                    <span>16% commission</span>
-                                </div>
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #f97316;">P</div>
+                                <div class="task-title">Email Marketing: Investor Update Campaign</div>
+                            </div>
+                            <div class="task-desc">Create email campaign for monthly investor updates with key metrics and milestones.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Email</span>
+                                <span>3h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Done Column -->
+                <div class="column">
+                    <div class="column-header">
+                        <span class="column-title">Done</span>
+                        <span class="column-count">5</span>
+                    </div>
+                    <div class="column-content">
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-avatar" style="background: #8b5cf6;">J</div>
+                                <div class="task-title">Weekly Team Sync Notes</div>
+                            </div>
+                            <div class="task-desc">Compile and distribute notes from weekly team synchronization meeting.</div>
+                            <div class="task-meta">
+                                <span class="task-tag">Admin</span>
+                                <span>1h</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Agent Status -->
-        <section class="card">
-            <div class="card-header">
-                <h2 class="card-title">Agent Status</h2>
-            </div>
-            <div class="card-content">
-                <div class="agent-list">
-                    <div class="agent-card">
-                        <div class="agent-avatar">👩‍💼</div>
-                        <div class="agent-info">
-                            <div class="agent-name">Sarah (You)</div>
-                            <div class="agent-status">
-                                <span class="status-dot"></span>
-                                <span>Active</span>
-                            </div>
-                            <div class="agent-task">Reviewing Scary Mommy contract</div>
-                        </div>
+        <!-- Right Panel - Live Feed -->
+        <div class="feed-panel">
+            <div class="panel-header">Live Feed</div>
+            <div class="feed-list">
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-avatar" style="background: #6366f1;">Q</div>
+                        <span class="feed-author">Quill</span>
+                        <span class="feed-action">commented on</span>
                     </div>
-                    <div class="agent-card">
-                        <div class="agent-avatar">🤖</div>
-                        <div class="agent-info">
-                            <div class="agent-name">Outreach Agent</div>
-                            <div class="agent-status">
-                                <span class="status-dot busy"></span>
-                                <span>Busy</span>
-                            </div>
-                            <div class="agent-task">Following up with Hip2Save</div>
-                        </div>
+                    <div class="feed-content">"Write Customer Case Studies (Start w/ Notion)"</div>
+                    <div class="feed-time">2 minutes ago</div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-avatar" style="background: #6366f1;">Q</div>
+                        <span class="feed-author">Quill</span>
+                        <span class="feed-action">commented on</span>
                     </div>
+                    <div class="feed-content">"Twitter Content Blitz - 10 Tweets This Week"</div>
+                    <div class="feed-time">5 minutes ago</div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-avatar" style="background: #f97316;">P</div>
+                        <span class="feed-author">Pepper</span>
+                        <span class="feed-action">commented on</span>
+                    </div>
+                    <div class="feed-content">"Design Experience Revenue Mechanics (SaaS Cheat Code)"</div>
+                    <div class="feed-time">12 minutes ago</div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-avatar" style="background: #84cc16;">Wo</div>
+                        <span class="feed-author">Wong</span>
+                        <span class="feed-action">commented on</span>
+                    </div>
+                    <div class="feed-content">"Twitter Content Blitz - 10 Tweets This Week"</div>
+                    <div class="feed-time">18 minutes ago</div>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-avatar" style="background: #06b6d4;">F</div>
+                        <span class="feed-author">Friday</span>
+                        <span class="feed-action">commented on</span>
+                    </div>
+                    <div class="feed-content">"Design Experience Revenue Mechanics (SaaS Cheat Code)"</div>
+                    <div class="feed-time">25 minutes ago</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 </body>
 </html>
