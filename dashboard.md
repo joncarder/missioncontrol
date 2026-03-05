@@ -4,7 +4,7 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Prospects** | 6 |
+| **Total Prospects** | 126 (100 from list + 20 deal sites + 6 original) |
 | **Contacted** | 0 |
 | **Responded** | 0 |
 | **Signed Up** | 0 |
@@ -104,6 +104,11 @@ sarah@mylilstartup.com
 
 ---
 
+## Completed Tasks
+
+- ✅ **TASK 1.1** — Analyzed KiwiCo affiliate program (see research/kiwico-affiliate-research.md)
+- ✅ **TASK 1.2A** — Built list of 20 deal/coupon sites (see prospects/deal-sites.md)
+
 ## Next Actions
 
 1. **Get Awin access** — Set up 20% Private Offer
@@ -114,4 +119,4 @@ sarah@mylilstartup.com
 
 ---
 
-*Last updated: 2026-03-02*
+*Last updated: 2026-03-05*
